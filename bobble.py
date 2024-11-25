@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def fail(frame_data: int) -> None:
+def fail(frame_data: List[int]) -> None:
     "Сохранение в файл"
     with open('frame_data.txt', 'w') as f:
         for frame_info in frame_data:
@@ -32,7 +32,7 @@ def chart(frame_data: int, frame_width: int, frame_height: int) -> None:
     plt.show()
 
 
-def video(cap,min_w_h: int, max_w_h: int, frame_data: int) -> int:
+def video(cap: cv2.VideoCapture,min_w_h: int, max_w_h: int, frame_data: int) -> List[int]:
     "Обработка видео"
     frame_number :int = 0 # номер кадра
     while cap.isOpened():
